@@ -213,11 +213,13 @@ SVG.extend(SVG.Textflow, {
   }  
 });
 
-
 // Add textflow to container methods
 SVG.extend(SVG.Container, {
   // Create textflow element
-  textflow: function(text, width = 100, height = 'auto') {
+  textflow: function(text, width, height) {
+    var width = arguments.length <= 1 || arguments[1] === undefined ? 100 : arguments[1];
+    var height = arguments.length <= 2 || arguments[2] === undefined ? 'auto' : arguments[2];
+    
     return this.put(new SVG.Textflow).size(width, height).text(text);
   }
   
