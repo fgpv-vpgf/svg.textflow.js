@@ -51,7 +51,7 @@ SVG.extend(SVG.Textflow, {
     }
     
     /* update the content */
-    this.content = SVG.regex.isBlank.test(text) ? 'text' : text;
+    this.content = SVG.regex.isBlank.test(text) ? '' : text;
     
     return this.attr('x', 0).attr(this.styles);
   }
