@@ -101,11 +101,12 @@ SVG.extend(SVG.Textflow, {
     while (i--) {
       /* prepare line */
       line = ''
-      words = paragraphs.shift().split(' ');
+      // break words on dashes and underscores as well as spaces
+      words = paragraphs.shift().replace(/([-_])/gi, '$1 ').split(' ');
       
       /* add words */
       w = words.length;
-      while (w--) {
+      while (words.length) {
         word = words.shift();
         
         /* try text */
@@ -117,6 +118,16 @@ SVG.extend(SVG.Textflow, {
         /* save line */
         if (box.width + size / 2 <= this._width) {
           line += (line.length > 0 ? ' ' : '') + word;
+        } else if (line.length === 0) {
+          // if the word is longer than available width, guess how many characters will fit and force-break the word at that place
+          const splitIndex = Math.ceil(this._width / (box.width + size / 2) * word.length);
+          const splitWord = word.substring(splitIndex);
+          
+          word = word.substring(0, splitIndex);
+          line += word;
+          words.unshift(splitWord);
+          
+          //console.log(splitIndex, word, splitWord)
         } else {
           lines.push(line);
           line = word;
