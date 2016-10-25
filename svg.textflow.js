@@ -124,7 +124,7 @@ SVG.extend(SVG.Textflow, {
           const splitWord = word.substring(splitIndex);
           
           word = word.substring(0, splitIndex);
-          line += word;
+          lines.push(word); // push first part of the broken word into lines; the current line is still empty
           words.unshift(splitWord);
           
           //console.log(splitIndex, word, splitWord)
