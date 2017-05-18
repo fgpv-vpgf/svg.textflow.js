@@ -1,0 +1,19 @@
+{
+  "name": "svg.textflow.js",
+  "version": "1.0.0",
+  "description": "Based on http://svgjs.com/textflow/",
+  "main": "svg.textflow.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fgpv-vpgf/svg.textflow.js.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fgpv-vpgf/svg.textflow.js/issues"
+  },
+  "homepage": "https://github.com/fgpv-vpgf/svg.textflow.js#readme"
+}
